@@ -37,14 +37,6 @@ body {
   line-height: 1;
 }
 .temperature,
-a {
-  color: #5a6275;
-  font-size: 35px;
-  line-height: 1;
-  font-weight: bold;
-  text-decoration: none;
-}
-
 .mainWeather {
   font-size: 50px;
   text-align: center;
@@ -72,4 +64,10 @@ a {
 }
 .fa-cloud-sun {
   color: #e75609;
+}
+.source {
+  color: #5a6275;
+  font-size: 15px;
+  line-height: 1.2;
+  position: relative;
 }
