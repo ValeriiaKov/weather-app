@@ -1,0 +1,75 @@
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+.main {
+  width: 600px;
+  display: block;
+  margin: 0 auto;
+  top: 50px;
+}
+.btn {
+  position: relative;
+  left: -16px;
+}
+.city {
+  color: #5a6275;
+  font-size: 30px;
+  margin: 20px 0 0 0;
+  font-weight: bold;
+  line-height: 1;
+  text-transform: capitalize;
+}
+.today {
+  color: #5a6275;
+  font-size: 13px;
+  line-height: 1;
+}
+.moreinfo {
+  margin: 90px 0 0 0;
+  color: #5a6275;
+  font-size: 15px;
+  line-height: 1.2;
+  text-align: right;
+}
+.now {
+  color: #5a6275;
+  font-size: 30px;
+  line-height: 1;
+}
+.temperature,
+a {
+  color: #5a6275;
+  font-size: 35px;
+  line-height: 1;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.mainWeather {
+  font-size: 50px;
+  text-align: center;
+  position: relative;
+  left: 70px;
+}
+.weatherNow {
+  margin-top: 10px;
+}
+.weekcard {
+  margin-top: 10px;
+}
+.week {
+  color: #5a6275;
+  font-size: 17px;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: bold;
+}
+.fa-sun {
+  color: #ffd900;
+}
+.fa-cloud-rain {
+  color: #12369e;
+}
+.fa-cloud-sun {
+  color: #e75609;
+}
