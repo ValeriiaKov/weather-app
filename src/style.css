@@ -36,7 +36,14 @@ body {
   font-size: 30px;
   line-height: 1;
 }
-.temperature,
+.temperature {
+  color: #5a6275;
+  font-size: 35px;
+  line-height: 1;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .mainWeather {
   font-size: 50px;
   text-align: center;
@@ -70,4 +77,6 @@ body {
   font-size: 15px;
   line-height: 1.2;
   position: relative;
+  margin-top: 60px;
+  text-align: center;
 }
