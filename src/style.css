@@ -7,10 +7,6 @@ body {
   margin: 0 auto;
   top: 50px;
 }
-.btn {
-  position: relative;
-  left: -16px;
-}
 .city {
   color: #5a6275;
   font-size: 30px;
