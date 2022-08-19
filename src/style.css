@@ -75,3 +75,6 @@ body {
   margin-top: 60px;
   margin-left: 260px;
 }
+#fahrenheit {
+  text-decoration: none;
+}

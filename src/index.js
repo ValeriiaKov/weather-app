@@ -22,7 +22,7 @@ let currentDate = document.querySelector("#today-time");
 currentDate.innerHTML = `${day} ${hours}:${minutes}`;
 
 function changeCurrent(response) {
-  console.log(response.data.weather[0].main);
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#current-temp");
   currentTemp.innerHTML = `${temperature}°C`;
@@ -35,6 +35,12 @@ function changeCurrent(response) {
   wind.innerHTML = `Wind: ${windSpeed} km/h`;
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = response.data.weather[0].main;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].main);
 }
 function getGeolocation(position) {
   let lat = `${position.coords.latitude}`;
@@ -50,7 +56,6 @@ let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", callNavigator);
 
 function changeWeather(response) {
-  console.log(response.data.weather[0].main);
   let temperature = Math.round(response.data.main.temp);
   let temp = document.querySelector("#current-temp");
   temp.innerHTML = `${temperature}°C`;
@@ -61,6 +66,12 @@ function changeWeather(response) {
   wind.innerHTML = `Wind: ${windSpeed} km/h`;
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = response.data.weather[0].main;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", `$response.data.weather[0].main`);
 }
 function changeCity(event) {
   event.preventDefault();
