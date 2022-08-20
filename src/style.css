@@ -79,10 +79,15 @@ body {
   margin-top: 60px;
   margin-left: 260px;
 }
-#celsium-temperature,
+#celsius-temperature,
 #fahrenheit-temperature {
   text-decoration: none;
 }
+.units .activePage {
+  color: #5a6275;
+  cursor: default;
+}
+
 .units {
   display: block;
   font-size: 22px;
