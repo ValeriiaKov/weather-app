@@ -89,3 +89,33 @@ fahrenheitLink.addEventListener("click", showFahreheitTemp);
 
 let celsiusLink = document.querySelector("#celsius-temperature");
 celsiusLink.addEventListener("click", showCelsiusTemp);
+
+function showForecast() {
+  let weatherForecast = document.querySelector("#forecast");
+  let forecastElement = `<div class="row">`;
+  weekDays.forEach(function (day) {
+    forecastElement =
+      forecastElement +
+      `<div class="col">
+                  <div class="card weekcard">
+                    <div class="card-body">
+                      <p class="week">
+                       <div class="day"> ${day} </div>
+                        <img
+                          src="http://openweathermap.org/img/wn/10d@2x.png"
+                          alt="Clear"
+                          id="icon"
+                          class="forecastImage"
+                        />
+                        <br />
+                        31°C
+                      </p>
+                    </div>
+                  </div>
+                </div>
+               `;
+  });
+  forecastElement = forecastElement + `</div>`;
+  weatherForecast.innerHTML = forecastElement;
+}
+showForecast();

@@ -95,3 +95,6 @@ body {
   margin-top: -33px;
   margin-left: 35px;
 }
+.forecastImage {
+  max-width: 70%;
+}
