@@ -23,7 +23,7 @@ currentDate.innerHTML = `${day} ${hours}:${minutes}`;
 
 function getCoords(coordinates) {
   let apiKey = "ae23c8dd3319699701cfabe88335a92f";
-  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}`;
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrlForecast).then(showForecast);
 }
 
@@ -97,30 +97,43 @@ fahrenheitLink.addEventListener("click", showFahreheitTemp);
 let celsiusLink = document.querySelector("#celsius-temperature");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
-function showForecast() {
+function formatDay(time) {
+  let date = new Date(time * 1000);
+  let day = date.getDay();
+  return weekDays[day];
+}
+
+function showForecast(response) {
+  let forecast = response.data.daily;
   let weatherForecast = document.querySelector("#forecast");
   let forecastElement = `<div class="row">`;
-  weekDays.forEach(function (day) {
-    forecastElement =
-      forecastElement +
-      `<div class="col">
+  forecast.forEach(function (day, index) {
+    if (index < 4) {
+      forecastElement =
+        forecastElement +
+        `<div class="col-3">
                   <div class="card weekcard">
                     <div class="card-body">
                       <p class="week">
-                       <div class="day"> ${day} </div>
+                       <div class="day"> ${formatDay(day.dt)} </div>
                         <img
-                          src="http://openweathermap.org/img/wn/10d@2x.png"
+                          src="http://openweathermap.org/img/wn/${
+                            day.weather[0].icon
+                          }@2x.png"
                           alt="Clear"
                           id="icon"
                           class="forecastImage"
                         />
-                        <br />
-                        31°C
+                        <br /> 
+                        <span class="temperature"> ${Math.round(
+                          day.temp.day
+                        )}°C</span>
                       </p>
                     </div>
                   </div>
                 </div>
                `;
+    }
   });
   forecastElement = forecastElement + `</div>`;
   weatherForecast.innerHTML = forecastElement;
