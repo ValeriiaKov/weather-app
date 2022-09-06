@@ -105,6 +105,7 @@ function formatDay(time) {
 
 function showForecast(response) {
   let forecast = response.data.daily;
+  console.log(response.data.daily);
   let weatherForecast = document.querySelector("#forecast");
   let forecastElement = `<div class="row">`;
   forecast.forEach(function (day, index) {
@@ -120,7 +121,7 @@ function showForecast(response) {
                           src="http://openweathermap.org/img/wn/${
                             day.weather[0].icon
                           }@2x.png"
-                          alt="Clear"
+                          alt="${day.weather[0].main}"
                           id="icon"
                           class="forecastImage"
                         />
