@@ -21,6 +21,12 @@ if (minutes < 10) {
 let currentDate = document.querySelector("#today-time");
 currentDate.innerHTML = `${day} ${hours}:${minutes}`;
 
+function getCoords(coordinates) {
+  let apiKey = "ae23c8dd3319699701cfabe88335a92f";
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}`;
+  axios.get(apiUrlForecast).then(showForecast);
+}
+
 function changeWeather(response) {
   let city = document.querySelector("#city");
   city.innerHTML = response.data.name;
@@ -40,6 +46,7 @@ function changeWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", `$response.data.weather[0].main`);
+  getCoords(response.data.coord);
 }
 
 function getGeolocation(position) {
@@ -118,4 +125,3 @@ function showForecast() {
   forecastElement = forecastElement + `</div>`;
   weatherForecast.innerHTML = forecastElement;
 }
-showForecast();
